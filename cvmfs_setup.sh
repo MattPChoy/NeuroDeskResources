@@ -20,8 +20,10 @@ echo 'CVMFS_KEYS_DIR="/etc/cvmfs/keys/ardc.edu.au/"' | sudo tee -a /etc/cvmfs/co
 echo "CVMFS_HTTP_PROXY=DIRECT" | sudo tee  /etc/cvmfs/default.local
 echo "CVMFS_QUOTA_LIMIT=5000" | sudo tee -a  /etc/cvmfs/default.local
 
+echo "==========================================================="
+echo "CVMFS_Config:"
 sudo cvmfs_config setup
-
+echo "==========================================================="
 # this is only necessary for WSL:
 # sudo cvmfs_config wsl2_start
 
