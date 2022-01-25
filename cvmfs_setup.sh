@@ -1,8 +1,8 @@
-"""
+: '
 ================================================================================
  [1] Install & Configure CVMFS based on NeuroDesk guide
 ================================================================================
-"""
+'
 sudo mkdir -p /etc/cvmfs/keys/ardc.edu.au/
 echo "-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
@@ -40,13 +40,13 @@ sudo cvmfs_talk -i neurodesk.ardc.edu.au host info
 
 cvmfs_config stat -v neurodesk.ardc.edu.au
 
-"""
+:'
 ================================================================================
  [2] Install GO
   - Used to compile Singularity
   - Using go1.17.6.linux-amd64.tar.gz from https://go.dev/dl/
 ================================================================================
-"""
+'
 
 # Set up environment variables for the download
 export VERSION=1.17.6
@@ -61,11 +61,11 @@ sudo tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz
 echo 'export PATH=/usr/local/go/bin:$PATH'
 # >> ~/.bashrc && \ source ~/.bashrc # Adds PATH to .bashrc?
 
-"""
+:'
 ================================================================================
  [3] Download, Build & Compile Singularity
 ================================================================================
-"""
+'
 export VERSION=3.9.4
 # wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz
 wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz
