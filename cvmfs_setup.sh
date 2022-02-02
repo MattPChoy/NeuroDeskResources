@@ -101,8 +101,8 @@ iMod 4.11.12 RHEL 7, CUDA 8
 iMod 4.11.12 RHEL 6, CUDA 8
   https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL6-64_CUDA8.0.sh
 '
-export IMOD_VERSION = 4.11.12
-export CUDA_VERSION = 10.1
+export IMOD_VERSION=4.11.12
+export CUDA_VERSION 10.1
 # export CUDA_VERSION = 8.0
 
 wget https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_${IMOD_VERSION}_RHEL7-64_CUDA${CUDA_VERSION}.sh
