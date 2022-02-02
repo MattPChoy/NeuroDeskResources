@@ -3,6 +3,12 @@
  [1] Install & Configure CVMFS based on NeuroDesk guide
 ================================================================================
 '
+# Installation of CVMFS
+sudo yum install redhat-lsb-core # Less dependencies than redhat-lsb
+sudo yum install https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
+sudo yum install -y cvmfs
+
+# Configuration of CVMFS
 sudo mkdir -p /etc/cvmfs/keys/ardc.edu.au/
 echo "-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwUPEmxDp217SAtZxaBep
@@ -64,6 +70,7 @@ echo 'export PATH=/usr/local/go/bin:$PATH'
 :'
 ================================================================================
  [3] Download, Build & Compile Singularity
+ TODO: Modify as per this post https://stackoverflow.com/a/70852355/8214951
 ================================================================================
 '
 export VERSION=3.9.4
@@ -80,3 +87,27 @@ echo $VERSION | tee VERSION # Creates a file containing Singularity version no.
 ./mconfig
 make -C builddir
 sudo make -C builddir install
+
+:'
+================================================================================
+ [4] Download, Build & Install iMod
+  - https://bio3d.colorado.edu/imod/download.html
+  - https://bio3d.colorado.edu/imod/AMD64-RHEL5/
+================================================================================
+iMod 4.11.12 RHEL 7, CUDA 10
+  https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL7-64_CUDA10.1.sh
+iMod 4.11.12 RHEL 7, CUDA 8
+  https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL7-64_CUDA8.0.sh
+iMod 4.11.12 RHEL 6, CUDA 8
+  https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL6-64_CUDA8.0.sh
+'
+export IMOD_VERSION = 4.11.12
+export CUDA_VERSION = 10.1
+# export CUDA_VERSION = 8.0
+
+wget https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_${IMOD_VERSION}_RHEL7-64_CUDA${CUDA_VERSION}.sh
+# Installs into /usr/local/IMOD unless given an alternate location to /usr/local
+# with the -dir option
+
+# Run the shell script
+sh imod_${IMOD_VERSION}_RHEL7-64_CUDA${CUDA_VERSION}.sh
