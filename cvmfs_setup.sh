@@ -4,7 +4,7 @@
 ================================================================================
 '
 # Installation of CVMFS
-sudo yum install redhat-lsb-core # Less dependencies than redhat-lsb
+sudo yum install -y redhat-lsb-core # Less dependencies than redhat-lsb
 sudo yum install https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
 sudo yum install -y cvmfs
 
