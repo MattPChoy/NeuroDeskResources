@@ -90,24 +90,10 @@ sudo make -C builddir install
 
 :'
 ================================================================================
- [4] Download, Build & Install iMod
-  - https://bio3d.colorado.edu/imod/download.html
-  - https://bio3d.colorado.edu/imod/AMD64-RHEL5/
-================================================================================
-iMod 4.11.12 RHEL 7, CUDA 10
-  https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL7-64_CUDA10.1.sh
-iMod 4.11.12 RHEL 7, CUDA 8
-  https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL7-64_CUDA8.0.sh
-iMod 4.11.12 RHEL 6, CUDA 8
-  https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_4.11.12_RHEL6-64_CUDA8.0.sh
+ [4] Download & Install lmod
+==============================================================================
 '
-export IMOD_VERSION=4.11.12
-export CUDA_VERSION 10.1
-# export CUDA_VERSION = 8.0
+wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo rpm -Uvh epel-release-latest-7.noarch.rpm
 
-wget https://bio3d.colorado.edu/imod/AMD64-RHEL5/imod_${IMOD_VERSION}_RHEL7-64_CUDA${CUDA_VERSION}.sh
-# Installs into /usr/local/IMOD unless given an alternate location to /usr/local
-# with the -dir option
-
-# Run the shell script
-sh imod_${IMOD_VERSION}_RHEL7-64_CUDA${CUDA_VERSION}.sh
+sudo yum install lmod
